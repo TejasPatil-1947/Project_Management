@@ -26,7 +26,7 @@ public class IssueController {
     private UserService userService;
 
     @GetMapping("/{issueId}")
-    public ResponseEntity<IssueDto> getIssueById(@PathVariable Long issueId) throws Exception{
+    public ResponseEntity<Issue> getIssueById(@PathVariable Long issueId) throws Exception{
         Issue issue = issueService.getIssueById(issueId);
         return ResponseEntity.ok(issue);
     }
@@ -52,7 +52,7 @@ public class IssueController {
         issueDto.setId(cratedIssue.getId());
         issueDto.setPriority(cratedIssue.getPriority());
         issueDto.setProject(cratedIssue.getProject());
-        issueDto.setProjectId(cratedIssue.getProjectId());
+        issueDto.setProjectId(cratedIssue.getProjectID());
         issueDto.setStatus(cratedIssue.getStatus());
         issueDto.setTitle(cratedIssue.getTitle());
         issueDto.setAssignee(cratedIssue.getAssignee());
